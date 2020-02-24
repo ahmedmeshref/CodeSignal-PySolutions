@@ -4,7 +4,7 @@
 
 def jobOffers(scores, lowerLimits, upperLimits):
     for l, u in zip(lowerLimits, upperLimits):
-        return sum([2 if (l <= scores[i] <= u and l <= scores[i+ 1] <= u) else 1 if l <= scores[i] <= u or l <= scores[i+ 1] <= u else 0 for i in range(0, len(scores), 2)])
+        return len(list(filter(lambda x: l <= x <= u, scores)))
 
 
 print(jobOffers([1, 2, 2, 2, 3], [2], [5]))
