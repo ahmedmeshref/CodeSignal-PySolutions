@@ -1,8 +1,7 @@
-from collections import Counter
-
-
 def maxValue(n, rounds):
-    l = [0]
+    d = {1: 10}
+
+
 
 n = 5
 rounds = [[1, 2, 100], [2, 5, 100], [3, 4, 100]]
