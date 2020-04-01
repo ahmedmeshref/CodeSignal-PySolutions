@@ -1,4 +1,3 @@
-import re
 def amendTheSentence(s):
     out_s = s[0].lower()
     for char in s[1:]:
