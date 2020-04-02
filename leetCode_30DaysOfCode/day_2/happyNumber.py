@@ -8,20 +8,16 @@ def isHappy(n):
     sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay),
     or it loops endlessly in a cycle which does not include 1.
     """
-    try:
+    seen = {n}
+    while True:
+        new_sq = sum([int(d) ** 2 for d in str(n)])
         if n == 1:
             return True
-        if n in memo:
-            return memo[n]
-        memo[n] = 0
-        k = 0
-        while n:
-            k += (n % 10) ** 2
-            n = n // 10
-        memo[n] = k
-        return isHappy(k)
-    except RecursionError:
-        return False
+        if new_sq in seen:
+            return False
+        else:
+            seen.add(new_sq)
+            n = new_sq
 
 
 print(isHappy(19))
