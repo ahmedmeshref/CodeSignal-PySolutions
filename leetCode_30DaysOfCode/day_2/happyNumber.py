@@ -8,7 +8,7 @@ def isHappy(n):
     sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay),
     or it loops endlessly in a cycle which does not include 1.
     """
-    seen = {n}
+    seen = {n:1}
     while True:
         new_sq = sum([int(d) ** 2 for d in str(n)])
         if n == 1:
@@ -16,8 +16,8 @@ def isHappy(n):
         if new_sq in seen:
             return False
         else:
-            seen.add(new_sq)
             n = new_sq
+            seen[n] = 1
 
 
 print(isHappy(19))
