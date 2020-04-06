@@ -1,18 +1,30 @@
+import collections
 def groupAnagrams(strs):
-    new_arr = []
-    for i in range(len(strs)):
-        k = list(strs[i])
-        new_arr.append("".join(sorted(k)))
+    # """
+    # TimeComplexity: O(n*K*log(K)) where n is the length of strs and K is the length of the longest string
+    #  in strs
+    # """
+    # seen = {}
+    # for s in strs:
+    #     ele = tuple((sorted(s)))
+    #     if ele in seen:
+    #         seen[ele].append(s)
+    #     else:
+    #         seen[ele] = [s]
+    # return seen.values()
 
-    out = []
-    seen = {}
-    for v1, v2 in zip(strs, new_arr):
-        if v2 in seen:
-            out[seen[v2]].append(v1)
-        else:
-            seen[v2] = len(out)
-            out.append([v1])
-    print(out)
+    """
+    Time Complexity: O (N*K)
+    """
+    d = collections.defaultdict(list)
+    for s in strs:
+        count = [0]*26
+        for char in s:
+            count[ord(char) - 97] += 1
+        d[tuple(count)].append(s)
+    return d.values()
 
 
 print(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+
+
