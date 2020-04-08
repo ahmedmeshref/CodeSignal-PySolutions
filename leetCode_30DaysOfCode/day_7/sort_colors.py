@@ -1,3 +1,8 @@
+"""
+Given an array that contains numbers (0, 1, 2) that represents colors (red, blue, black), sort the array
+such that all red colors comes first, then blue, then black.
+"""
+
 def maxHeapify(arr, len_arr, i):
     f_child = 2 * i + 1
     s_child = 2 * i + 2
