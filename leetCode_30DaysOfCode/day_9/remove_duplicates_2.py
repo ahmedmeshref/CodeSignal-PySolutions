@@ -15,11 +15,16 @@ It doesn't matter what you leave beyond the returned length.
 
 def removeDuplicates(nums):
     i = 0
+    # counter the number of duplicate numbers
     counter = 1
     for j in range(1, len(nums)):
+        # if the two numbers are different
         if nums[i] != nums[j]:
+            # swap
             i = swapHelper(i + 1, j, nums)
+            # set the counter to one again since we have a new num
             counter = 1
+        # if the number of duplicates from the same number is less than 2
         elif counter < 2:
             i = swapHelper(i + 1, j, nums)
             counter += 1
