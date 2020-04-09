@@ -11,13 +11,12 @@ def removeDuplicates(nums):
     TimeComplexity: O(n)
     SpaceComplexity: O(1)
     """
-    counter = 0
-    for i in range(len(nums) - 1):
-        if nums[counter] == nums[counter + 1]:
-            nums = nums[0:counter] + nums[counter+1:]
-        else:
-            counter += 1
-    return nums
+    i = 0
+    for j in range(len(nums)):
+        if nums[i] != nums[j]:
+            i += 1
+            nums[i], nums[j] = nums[j], nums[i]
+    return nums[0:i+1]
 
 
-print(removeDuplicates([1, 1, 2]))
+print(removeDuplicates([1, 2, 2, 2]))
