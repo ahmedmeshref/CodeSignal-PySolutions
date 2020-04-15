@@ -28,16 +28,17 @@ write documentation for my function
 """
 
 
-def grades_state(*grades):
+def grades_state(*args, **kwargs):
     """
     grades_state(grades) --> takes in students grades and returns the state of the grade, pass, fail, fucked up.
     :param grades: a list of integers represents the students grades
     :return: a string that represents the state of the student
     """
-    for grade in grades:
+    for grade in args:
         print(grade)
+    print(kwargs)
 
 
 print(grades_state.__doc__)
-grades_state(*[1, 2, 3, 4, 5])
+grades_state(*[1, 2, 3, 4, 5], ahmed=10)
 

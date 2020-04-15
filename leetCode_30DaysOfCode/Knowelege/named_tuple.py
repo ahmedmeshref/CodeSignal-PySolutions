@@ -13,7 +13,8 @@ color = Color(20, 40, 60)
 print(color.red)
 print(color[0])
 
-# However, as with tuples, attributes in named tuples are immutable.
+# However, as with tuples, attributes in named tuples are immutable. it has the _replace method to change values
+color = color._replace(red=200)
 
 # Named Tuple can be transformed to dict
 print(color._asdict())
