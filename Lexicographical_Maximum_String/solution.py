@@ -23,5 +23,5 @@ def getLargestString(s, k):
     return out
 
 
-s = "zzzzzzzzyy"
+s = "xxzzxx"
 print(getLargestString(s, 4))
