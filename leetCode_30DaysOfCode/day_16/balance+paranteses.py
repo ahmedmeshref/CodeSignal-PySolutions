@@ -10,37 +10,33 @@ An empty string is also valid.
 
 
 def checkValidString(s):
-    if len(s) == 0:
-        return True
-    nu_open = 0
-    stack = []
+    """
+    TimeComplexity: O(n)
+    SpaceComplexity: O(1)
+    """
+    used_stars = 0
+    unused_stars = 0
+    open_p = 0
     for p in s:
         if p == "(":
-            nu_open += 1
-            stack.append(p)
+            open_p += 1
         elif p == "*":
-            stack.append(p)
+            if open_p:
+                open_p -= 1
+                used_stars += 1
+            else:
+                unused_stars += 1
         else:
-            if nu_open:
-                ind = len(stack) - 1
-                while stack[ind] != "(":
-                    ind -= 1
-                stack[ind], stack[-1] = stack[-1], stack[ind]
-                stack.pop()
-                nu_open -= 1
-            elif stack:
-                stack.pop()
+            if open_p:
+                open_p -= 1
+            elif unused_stars:
+                unused_stars -= 1
+            elif used_stars:
+                unused_stars += 1
+                used_stars -= 1
             else:
                 return False
-    if nu_open and stack:
-        nu_open = 0
-        for char in stack:
-            if char == "(":
-                nu_open += 1
-            elif nu_open:
-                nu_open -= 1
-        if nu_open > 0:
-            return False
-    return True
+    return open_p == 0
 
-print(checkValidString("*())"))
+print(checkValidString("(())((())()()(*)(*()(())())())()()((()())((()))(*"))
+
