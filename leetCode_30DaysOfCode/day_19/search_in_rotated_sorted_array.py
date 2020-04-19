@@ -46,15 +46,21 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 
 
 def main(nums, target):
+    # left pointer
     l = 0
+    # right pointer
     r = len(nums) - 1
     while l <= r:
         mid = (l + r) // 2
         if nums[mid] == target:
             return mid
+        # if the first half of the array is sorted
         if nums[l] <= nums[mid]:
+            # check if the target point is in that half
             if nums[l] <= target < nums[mid]:
+                # move the right pointer
                 r = mid - 1
+            # else move the left pointer
             else:
                 l = mid + 1
         else:
