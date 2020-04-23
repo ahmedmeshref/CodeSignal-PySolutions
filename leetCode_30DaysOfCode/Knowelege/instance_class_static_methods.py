@@ -37,7 +37,7 @@ class DecoratorExample:
 
     @staticmethod
     def staticMethod():
-        return "I am inside the decorator"
+        return "I am inside the static method"
 
     # instance method
     def show_name(self):
@@ -52,27 +52,27 @@ class DecoratorExample:
 ins = DecoratorExample("ahmed")
 print(ins.show_name())
 print(ins.class_method("mohamed"))
-print(ins.show_name())
+print(ins.staticMethod())
 
 
-# example on the class methods to create instances of the class
-import re
-class Students:
-    """
-    Students class takes in a string with the name-student_id-grade and returns a list of all of the student data ready
-    to be added to the DB
-    """
-    def __init__(self, name, student_id, grade):
-        self.name = name
-        self.student_id = student_id
-        self.grade = grade
-
-    @classmethod
-    def tranString(cls, s):
-        name, id, grade = re.findall(r"\w+" ,s)
-        # return an object of the class Students
-        return cls(name, id, grade)
-
-s_info = "ahmed-171031-100"
-student = Students.tranString(s_info)
-print(student.student_id)
+# # example on the class methods to create instances of the class
+# import re
+# class Students:
+#     """
+#     Students class takes in a string with the name-student_id-grade and returns a list of all of the student data ready
+#     to be added to the DB
+#     """
+#     def __init__(self, name, student_id, grade):
+#         self.name = name
+#         self.student_id = student_id
+#         self.grade = grade
+#
+#     @classmethod
+#     def tranString(cls, s):
+#         name, id, grade = re.findall(r"\w+" ,s)
+#         # return an object of the class Students
+#         return cls(name, id, grade)
+#
+# s_info = "ahmed-171031-100"
+# student = Students.tranString(s_info)
+# print(student.student_id)

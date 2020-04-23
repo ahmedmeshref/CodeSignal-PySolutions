@@ -16,7 +16,6 @@ def numIslands(grid):
                 dfs(grid, i, j)
     return nuOfIslands
 
-
 def dfs(grid, i, j):
     if (j >= len(grid[0])) or (j < 0) or (i < 0) or (i >= len(grid)) or (grid[i][j] != "1"):
         return 0
@@ -29,6 +28,6 @@ def dfs(grid, i, j):
 
 grid = [["1", "1", "0"],
         ["1", "1", "0"],
-        ["0", "1", "1"],
+        ["0", "0", "1"],
         ["0", "0", "0"]]
 print(numIslands(grid))

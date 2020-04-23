@@ -1,24 +1,24 @@
+
 def countPalindromes(s):
-    # Write your code here
+    """
+    countPalindromes(s) takes in a string s and returns the number of palindrome in the string
+    :param s: a string
+    :return: number of palindrome sub strings 
+    """
     tot_pal = len(s)
     for i in range(len(s)):
-        l_p = i - 1
-        r_p = i + 1
-        ind = True
-        while l_p >= 0 and r_p < len(s) and ind:
-            ind = False
-            if s[l_p: r_p+1] == s[l_p: r_p+1][::-1]:
-                tot_pal += 1
-                ind = True
-            if s[l_p: i+1] == s[l_p: i+1][::-1]:
-                tot_pal += 1
-                ind = True
-            if s[i: r_p+1] == s[i: r_p+1][::-1]:
-                tot_pal += 1
-                ind = True
-            l_p -= 1
-            r_p += 1
+        tot_pal += helper(s, i, i + 1)
+        tot_pal += helper(s, i - 1, i + 1)
     return tot_pal
+
+
+def helper(s, l, r):
+    tot = 0
+    while (l >= 0) and (r < len(s)) and (s[l] == s[r]):
+        tot += 1
+        l -= 1
+        r += 1
+    return tot
 
 
 print(countPalindromes("aaa"))
