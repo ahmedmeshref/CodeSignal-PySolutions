@@ -3,7 +3,7 @@ def countPalindromes(s):
     """
     countPalindromes(s) takes in a string s and returns the number of palindrome in the string
     :param s: a string
-    :return: number of palindrome sub strings 
+    :return: number of palindrome sub strings
     """
     tot_pal = len(s)
     for i in range(len(s)):
